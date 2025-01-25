@@ -38,23 +38,6 @@ def main():
         user_input["Distance (km)"] = st.slider(
             "Distance", 1.0, 60.0, step=1.0, key="distance"
         )
-        user_input["Traffic_Level"] = st.radio(
-            "Traffic Level", ["Very Low", "Low", "Moderate", "High", "Very High"], key="traffic_level"
-        )
-        user_input["Type_of_vehicle"] = st.radio(
-            "Type of Vehicle",
-            ["motorcycle", "scooter", "electric_scooter", "bicycle"],
-            key="type_of_vehicle",
-        )
-        user_input["Type_of_order"] = st.radio(
-            "Type of Order",
-            ["Snack", "Drinks", "Buffet", "Meal"],
-            key="type_of_order",
-        )
-        
-        
-
-    with col2:
         user_input["weather_description"] = st.selectbox(
             "Weather Description",
             [
@@ -72,25 +55,41 @@ def main():
             ],
             key="weather_description",
         )
-        
-        user_input["humidity"] = st.slider(
-            "Humidity", 27, 94, step=1, key="humidity"
-        )
-        
+
+        user_input["humidity"] = st.slider("Humidity", 27, 94, step=1, key="humidity")
+
         user_input["temperature"] = st.slider(
-            "Temperature (°C)", -50, 50, step=1, key="temperature", value= 0
+            "Temperature (°C)", -50, 50, step=1, key="temperature", value=0
         )
         
-        user_input["precipitation"] = st.slider(
-            "Precipitation", 0.0, 1.46, step=0.1, key="precipitation"
+
+    with col2:
+        user_input["Traffic_Level"] = st.radio(
+            "Traffic Level",
+            ["Very Low", "Low", "Moderate", "High", "Very High"],
+            key="traffic_level",
         )
+        user_input["Type_of_vehicle"] = st.radio(
+            "Type of Vehicle",
+            ["motorcycle", "scooter", "electric_scooter", "bicycle"],
+            key="type_of_vehicle",
+        )
+        user_input["Type_of_order"] = st.radio(
+            "Type of Order",
+            ["Snack", "Drinks", "Buffet", "Meal"],
+            key="type_of_order",
+        )
+
+        # user_input["precipitation"] = st.slider(
+        #     "Precipitation", 0.0, 1.46, step=0.1, key="precipitation"
+        # )
 
     input_data = pd.DataFrame(user_input, index=[0])
     input_data_placeholder.write(input_data)
 
     st.write("---")
     if st.button("Predict"):
-        prediction = predictor.predict(input_data).round(0)
+        prediction = predictor.predict(input_data)
         st.success(f"Predicted Delivery Time: {int(prediction[0])} minutes")
 
 

@@ -17,7 +17,7 @@ def streamlit_run(dummy_input):
     Raises:
         FileNotFoundError: If 'streamlit.py' does not exist in the directory.
     """
-    
+
     # Create and run command
     streamlit_file = os.path.join(os.path.dirname(__file__), "streamlit.py")
     if not os.path.exists(streamlit_file):
