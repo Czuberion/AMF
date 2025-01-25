@@ -6,3 +6,5 @@ kedro[jupyter]~=0.19.10
 notebook
 scikit-learn~=1.5.1
 seaborn~=0.12.1
+autogluon==1.2
+streamlit==1.41.1
