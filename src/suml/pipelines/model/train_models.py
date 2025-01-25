@@ -4,7 +4,7 @@ import pandas as pd
 from autogluon.tabular import TabularPredictor
 
 
-def train_models(X_train, Y_train, X_dev, Y_dev, parameters):
+def train_models(x_train, y_train, x_dev, y_dev, parameters):
 
     print("Parameters received:", parameters)
 
@@ -20,8 +20,8 @@ def train_models(X_train, Y_train, X_dev, Y_dev, parameters):
     print(f"\nTraining AutoGluon for target: TARGET")
 
     # Combining X_train and Y_train into a single DataFrame
-    train_data = pd.concat([X_train, Y_train], axis=1)
-    dev_data = pd.concat([X_dev, Y_dev], axis=1)
+    train_data = pd.concat([x_train, y_train], axis=1)
+    dev_data = pd.concat([x_dev, y_dev], axis=1)
 
     # Checking the type of train_data
     print(f"X_train type: {type(train_data)}")
