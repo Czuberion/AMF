@@ -6,7 +6,7 @@ import os
 import subprocess
 
 
-def streamlit_run(dummy_input):
+def streamlit_run(best_model):
     """
     Runs the Streamlit application found in the same directory.
 
@@ -19,6 +19,8 @@ def streamlit_run(dummy_input):
     """
 
     # Create and run command
+    best_model.save("data/models")
+
     streamlit_file = os.path.join(os.path.dirname(__file__), "streamlit.py")
     if not os.path.exists(streamlit_file):
         raise FileNotFoundError(f"File Not Found: {streamlit_file}")
