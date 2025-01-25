@@ -40,5 +40,8 @@ def evaluate_models(predictor, x_test, y_test, parameters):
 
     print("\nFinal Evaluation Results:\n")
     print(results_df)
+    
+    predictor.save("data/models/best_model")
+
 
     return results_df, predictor

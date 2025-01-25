@@ -12,4 +12,4 @@ dummy_input:
 
 best_model:
   type: pickle.PickleDataset
-  filepath: data/models/predictor.pkl
+  filepath: data/models/best_model
