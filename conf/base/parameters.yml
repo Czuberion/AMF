@@ -24,5 +24,5 @@ hyperparameters:
 
 autogluon:
   time_limit: 3600
-  model_path: 'models'
+  model_path: 'data/models'
   eval_metric: 'r2'

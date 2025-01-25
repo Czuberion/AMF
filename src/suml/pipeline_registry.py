@@ -1,5 +1,5 @@
 from kedro.pipeline import Pipeline
-from suml.pipelines.data_science import pipeline as ds_pipeline
+from suml.pipelines import pipeline as ds_pipeline
 
 def register_pipelines():
     return {

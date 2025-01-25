@@ -2,10 +2,6 @@ food_time_raw:
   type: pandas.CSVDataset
   filepath: data/raw/Food_Time_Data_Set.csv
 
-# trained_models:
-#   type: pickle.PickleDataset
-#   filepath: data/models/trained_models.pkl
-
 model_metrics:
   type: pandas.CSVDataset
   filepath: data/reporting/model_metrics.csv

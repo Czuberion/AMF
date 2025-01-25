@@ -5,10 +5,11 @@ from sklearn.metrics import mean_absolute_error
 
 def split_data(data, parameters):
 
-
+    # Declare columns
     X = data[['Delivery_person_ID','Delivery_person_Age','Delivery_person_Ratings','Restaurant_latitude','Restaurant_longitude','Delivery_location_latitude','Delivery_location_longitude','Type_of_order','Type_of_vehicle','temperature','humidity','precipitation','weather_description','Traffic_Level','Distance']]
     Y = data['TARGET']
 
+    # Split data
     X_train, X_temp, Y_train, Y_temp = train_test_split(
         X, Y, test_size=parameters["test_size"], random_state=parameters["random_state"]
     )

@@ -11,34 +11,32 @@ def train_models(X_train, Y_train, X_dev, Y_dev, parameters):
 
     model_path = parameters['autogluon']['model_path']
 
-    # Zmieniamy sposób wypisania celu, zamiast wypisywać całego Y_train, wypisujemy nazwę kolumny
+    # Changing the way the target is printed, instead of printing the entire Y_train, we print the column name
     print(f"\nTraining AutoGluon for target: TARGET")
 
-    # Łączenie X_train i Y_train w jeden DataFrame
+    # Combining X_train and Y_train into a single DataFrame
     train_data = pd.concat([X_train, Y_train], axis=1)
     dev_data = pd.concat([X_dev, Y_dev], axis=1)
     
 
-    # Sprawdzanie typu train_data
+    # Checking the type of train_data
     print(f'X_train type: {type(train_data)}')
 
-    # Definiowanie metryki i typu problemu (domyślnie "regression")
+    # Defining the metric and problem type (default is "regression")
     eval_metric = parameters['autogluon'].get('eval_metric', 'mean_absolute_error')
 
-    save_path = 'data/models'
-
-    # Trening modelu
+    # Training the model
     predictor = TabularPredictor(
-        label='TARGET',  # Ustawiamy nazwę kolumny, nie całą serię
+        label='TARGET',
         eval_metric=eval_metric,
-        path=save_path,
-        problem_type='regression'  # Określamy typ problemu na regresję
+        path=model_path,
+        problem_type='regression'
     ).fit(
         train_data=train_data,
         time_limit=parameters['autogluon'].get('time_limit', 3600)
     )
 
-    # Ocena wydajności modelu na danych walidacyjnych
+    # Evaluating the model's performance on validation data
     performance = predictor.evaluate(dev_data)
     print(f"Performance for TARGET: {performance}")
 

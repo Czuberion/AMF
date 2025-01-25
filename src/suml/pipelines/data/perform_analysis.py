@@ -21,13 +21,13 @@ def perform_analysis(data):
     plt.show()
 
     # Plot histograms
-    data.hist(bins=50, figsize=(16, 8))
+    data.hist(bins=50, figsize=(16, 12))
     plt.show()
 
     # Correlation matrix for numeric columns
     numeric_data = data.select_dtypes(include=['number'])
     correlation_matrix = numeric_data.corr()
-    plt.figure(figsize=(16, 8))
+    plt.figure(figsize=(10, 8))
     sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
     plt.show()
 
