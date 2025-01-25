@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+
 def streamlit_run(dummy_input):
     # Create and run command
     streamlit_file = os.path.join(os.path.dirname(__file__), "streamlit.py")
