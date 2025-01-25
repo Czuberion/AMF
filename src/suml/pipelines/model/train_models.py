@@ -48,6 +48,7 @@ def train_models(x_train, y_train, x_dev, y_dev, parameters):
     # Defining the metric and problem type (default is "regression")
     eval_metric = parameters["autogluon"].get("eval_metric", "mean_absolute_error")
 
+
     # Training the model
     predictor = TabularPredictor(
         label="TARGET",
@@ -56,8 +57,10 @@ def train_models(x_train, y_train, x_dev, y_dev, parameters):
         problem_type="regression",
     ).fit(
         train_data=train_data,
+        excluded_model_types=['NN', 'GBM', 'CAT', 'RF', 'XT'],
         time_limit=parameters["autogluon"].get("time_limit", 3600),
     )
+
 
     # Evaluating the model's performance on validation data
     performance = predictor.evaluate(dev_data)
