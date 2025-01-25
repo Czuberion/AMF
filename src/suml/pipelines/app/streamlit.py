@@ -47,7 +47,7 @@ def main():
         )
 
         # Distance
-        min_distance, max_distance = data["Distance"].dropna().min(), data["Distance"].dropna().max()
+        min_distance, max_distance = data["Distance (km)"].dropna().min(), data["Distance (km)"].dropna().max()
         distance = st.slider(
             "Distance", float(min_distance), float(max_distance), step=1.0, key="distance"
         )
@@ -128,7 +128,7 @@ def main():
             "precipitation": [precipitation],
             "weather_description": [weather_description],
             "Traffic_Level": [traffic_level],
-            "Distance": [distance],
+            "Distance (km)": [distance],
         })
 
         # Update the displayed data
