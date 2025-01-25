@@ -25,36 +25,36 @@ def create_pipeline(**kwargs):
     return Pipeline(
         [
             # Whole pipeline
-            node(
-                func=perform_analysis,
-                inputs="food_time_raw",
-                outputs="food_time_analyzed",
-                name="perform_analysis_node",
-            ),
-            node(
-                func=clean_data,
-                inputs="food_time_analyzed",
-                outputs="food_time_cleaned",
-                name="clean_data_node",
-            ),
-            node(
-                func=split_data,
-                inputs=["food_time_cleaned", "parameters"],
-                outputs=["x_train", "x_dev", "x_test", "y_train", "y_dev", "y_test"],
-                name="split_data_node",
-            ),
-            node(
-                func=train_models,
-                inputs=["x_train", "y_train", "x_dev", "y_dev", "parameters"],
-                outputs="trained_models",
-                name="train_models_node",
-            ),
-            node(
-                func=evaluate_models,
-                inputs=["trained_models", "x_test", "y_test", "parameters"],
-                outputs=["model_metrics", "best_model"],
-                name="evaluate_models_node",
-            ),
+            # node(
+            #     func=perform_analysis,
+            #     inputs="food_time_raw",
+            #     outputs="food_time_analyzed",
+            #     name="perform_analysis_node",
+            # ),
+            # node(
+            #     func=clean_data,
+            #     inputs="food_time_analyzed",
+            #     outputs="food_time_cleaned",
+            #     name="clean_data_node",
+            # ),
+            # node(
+            #     func=split_data,
+            #     inputs=["food_time_cleaned", "parameters"],
+            #     outputs=["x_train", "x_dev", "x_test", "y_train", "y_dev", "y_test"],
+            #     name="split_data_node",
+            # ),
+            # node(
+            #     func=train_models,
+            #     inputs=["x_train", "y_train", "x_dev", "y_dev", "parameters"],
+            #     outputs="trained_models",
+            #     name="train_models_node",
+            # ),
+            # node(
+            #     func=evaluate_models,
+            #     inputs=["trained_models", "x_test", "y_test", "parameters"],
+            #     outputs=["model_metrics", "best_model"],
+            #     name="evaluate_models_node",
+            # ),
             node(
                 func=streamlit_run,
                 inputs=["best_model"],

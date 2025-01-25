@@ -19,7 +19,7 @@ def streamlit_run(best_model):
     """
 
     # Create and run command
-    best_model.save("data/models")
+    #best_model.save("data/models")
 
     streamlit_file = os.path.join(os.path.dirname(__file__), "streamlit.py")
     if not os.path.exists(streamlit_file):

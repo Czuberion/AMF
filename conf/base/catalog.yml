@@ -9,3 +9,7 @@ model_metrics:
 dummy_input:
   type: pandas.CSVDataset
   filepath: data/reporting/model_metrics.csv
+
+best_model:
+  type: pickle.PickleDataset
+  filepath: data/models/predictor.pkl
