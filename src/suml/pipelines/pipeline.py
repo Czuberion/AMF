@@ -1,5 +1,7 @@
+"""
+This module contains the main pipeline code for the project.
+"""
 from kedro.pipeline import Pipeline, node
-
 from .app.streamlit_run import streamlit_run
 from .data.clean_data import clean_data
 from .data.perform_analysis import perform_analysis
@@ -9,6 +11,15 @@ from .model.train_models import train_models
 
 
 def create_pipeline(**kwargs):
+    """
+    Creates a Kedro pipeline that performs data analysis, cleaning, splitting, model training,
+    and evaluation. It then passes the best model to a Streamlit application for demonstration.
+
+    Returns:
+        Pipeline: A composed Kedro pipeline with nodes for data analysis, cleaning, splitting,
+        model training, evaluation, and an optional Streamlit app runner.
+    """
+
     return Pipeline(
         [
             # Whole pipeline
@@ -27,13 +38,7 @@ def create_pipeline(**kwargs):
             node(
                 func=split_data,
                 inputs=["food_time_cleaned", "parameters"],
-                outputs=[
-                    "x_train",
-                    "x_dev",
-                    "x_test",
-                    "y_train",
-                    "y_dev",
-                    "y_test"],
+                outputs=["x_train", "x_dev", "x_test", "y_train", "y_dev", "y_test"],
                 name="split_data_node",
             ),
             node(

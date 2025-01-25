@@ -1,3 +1,6 @@
+"""
+This module contains the entry point for the project.
+"""
 import sys
 from pathlib import Path
 from typing import Any

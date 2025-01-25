@@ -1,5 +1,7 @@
+"""
+This module contains functions for cleaning and preprocessing data.
+"""
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
 
 
 def clean_data(data):
