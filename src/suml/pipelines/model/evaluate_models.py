@@ -1,8 +1,27 @@
+"""
+This module contains functions and classes for evaluating machine learning models.
+"""
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
 def evaluate_models(predictor, x_test, y_test, parameters):
+    """
+    Evaluate the performance of a trained model using various regression metrics.
+    Args:
+        predictor: A trained model that implements the 'predict' method.
+        x_test: The test features to be used for making predictions.
+        y_test: The ground truth values for calculating the metrics.
+        parameters: Additional parameters or configuration for the evaluation process.
+    Returns:
+        A tuple containing:
+            - A pandas DataFrame summarizing the evaluation metrics (MAE, MSE, R2).
+            - The predictor instance, unchanged.
+    The evaluation metrics calculated are:
+        - MAE (Mean Absolute Error)
+        - MSE (Mean Squared Error)
+        - R2 (Coefficient of Determination)
+    """
 
     # Predict
     prediction = predictor.predict(x_test)

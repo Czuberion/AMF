@@ -1,12 +1,12 @@
+"""
+This module contains the Streamlit application code.
+"""
 import pandas as pd
 import streamlit as st
 from autogluon.tabular import TabularPredictor
 
 # Set application width
-st.set_page_config(
-    layout="wide",
-    page_title="Delivery Prediction App",
-    page_icon="🚚")
+st.set_page_config(layout="wide", page_title="Delivery Prediction App", page_icon="🚚")
 
 # Load the saved model
 MODEL_PATH = "data/models"
@@ -16,6 +16,13 @@ predictor = TabularPredictor.load(MODEL_PATH)
 # Load the dataset
 @st.cache_data
 def load_data():
+    """
+    Load the data from a specified CSV file and return it as a pandas DataFrame.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the data from the CSV file.
+    """
+
     return pd.read_csv("data/raw/Food_Time_Data_Set.csv")
 
 
@@ -23,6 +30,17 @@ data = load_data()
 
 
 def main():
+    """
+    Displays a Streamlit application for delivery time prediction.
+    The function sets up a user-friendly interface where users can:
+    1. Input weather, location, and delivery-related information through sliders,
+        radio buttons, and text fields.
+    2. Review the entered data in a live-updated table.
+    3. Obtain a predicted delivery time by clicking a dedicated button.
+    All provided user inputs are collected into a pandas DataFrame,
+    which is then passed to a prediction model.
+    """
+
     st.title("Delivery Prediction App")
 
     st.subheader("Entered Data")
@@ -90,13 +108,19 @@ def main():
 
     with col3:
         user_input["Type_of_order"] = st.radio(
-            "Type of Order", data["Type_of_order"].dropna().unique(), key="type_of_order"
+            "Type of Order",
+            data["Type_of_order"].dropna().unique(),
+            key="type_of_order",
         )
         user_input["Type_of_vehicle"] = st.radio(
-            "Type of Vehicle", data["Type_of_vehicle"].dropna().unique(), key="type_of_vehicle"
+            "Type of Vehicle",
+            data["Type_of_vehicle"].dropna().unique(),
+            key="type_of_vehicle",
         )
         user_input["Traffic_Level"] = st.radio(
-            "Traffic Level", ["Very Low", "Low", "Moderate", "High", "Very High"], key="traffic_level"
+            "Traffic Level",
+            ["Very Low", "Low", "Moderate", "High", "Very High"],
+            key="traffic_level",
         )
 
     with col4:
@@ -128,7 +152,6 @@ def main():
     if st.button("Predict"):
         prediction = predictor.predict(input_data)
         st.success(f"Predicted Delivery Time: {prediction[0]} minutes")
-
 
 
 if __name__ == "__main__":

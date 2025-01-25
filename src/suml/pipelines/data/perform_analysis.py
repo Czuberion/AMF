@@ -1,9 +1,22 @@
+"""
+This module contains functions for analyzing data.
+"""
 import matplotlib.pyplot as plt
-import numpy as np
 import seaborn as sns
 
 
 def perform_analysis(data):
+    """
+    Perform exploratory data analysis on the given dataset by removing an 'ID' column (if present),
+    printing data information and descriptive statistics, checking for missing values, and producing
+    various plots such as histograms and a correlation heatmap.
+    Args:
+        data (pandas.DataFrame):
+            A pandas DataFrame containing the dataset to be analyzed.
+    Returns:
+        pandas.DataFrame:
+            The original DataFrame with the 'ID' column removed (if it was present).
+    """
     # Load and inspect data
     if "ID" in data.columns:
         data = data.drop(columns=["ID"])

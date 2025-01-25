@@ -1,3 +1,6 @@
+"""
+This module contains the registry for the pipelines in the project.
+"""
 from suml.pipelines import pipeline as ds_pipeline
 
 

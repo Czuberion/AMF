@@ -1,7 +1,26 @@
+"""
+This module contains functions for splitting data into training and testing sets.
+"""
 from sklearn.model_selection import train_test_split
 
 
 def split_data(data, parameters):
+    """
+    Splits the input data into training, development, and test sets.
+    Parameters:
+    data (pd.DataFrame): The input data containing features and target.
+    parameters (dict): A dictionary containing the following keys:
+        - "test_size" (float): The proportion of the data to include in the test split.
+        - "random_state" (int): The seed used by the random number generator.
+    Returns:
+    tuple: A tuple containing the following six elements:
+        - x_train (pd.DataFrame): Training set features.
+        - x_dev (pd.DataFrame): Development set features.
+        - x_test (pd.DataFrame): Test set features.
+        - y_train (pd.Series): Training set target.
+        - y_dev (pd.Series): Development set target.
+        - y_test (pd.Series): Test set target.
+    """
 
     # Declare columns
     x = data.drop(columns=["TARGET"])
