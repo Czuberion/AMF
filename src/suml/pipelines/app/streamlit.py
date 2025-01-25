@@ -10,7 +10,7 @@ from autogluon.tabular import TabularPredictor
 st.set_page_config(layout="wide", page_title="Delivery Prediction App", page_icon="🚚")
 
 # Load the saved model
-MODEL_PATH = "data/models"
+MODEL_PATH = "data/models/predictor.pkl"
 predictor = TabularPredictor.load(MODEL_PATH)
 
 
