@@ -1,6 +1,7 @@
 """
 This module contains functions for analyzing data.
 """
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 

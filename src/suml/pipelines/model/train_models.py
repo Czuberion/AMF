@@ -1,6 +1,7 @@
 """
 This module contains functions and classes for training machine learning models.
 """
+
 import pandas as pd
 from autogluon.tabular import TabularPredictor
 

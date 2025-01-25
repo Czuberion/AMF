@@ -1,6 +1,7 @@
 """
 This module contains the Streamlit application code.
 """
+
 import pandas as pd
 import streamlit as st
 from autogluon.tabular import TabularPredictor

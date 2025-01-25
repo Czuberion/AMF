@@ -1,7 +1,9 @@
 """
 This module contains the main pipeline code for the project.
 """
+
 from kedro.pipeline import Pipeline, node
+
 from .app.streamlit_run import streamlit_run
 from .data.clean_data import clean_data
 from .data.perform_analysis import perform_analysis

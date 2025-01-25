@@ -1,6 +1,7 @@
 """
 This module contains the function to run the Streamlit application.
 """
+
 import os
 import subprocess
 
