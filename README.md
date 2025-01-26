@@ -22,9 +22,17 @@ In order to get the best out of the template:
 To run this project with Docker, you must:
 
 1. Build the Docker Image
-   `docker build -t delivery-prediction-app .`
+
+   ```
+   docker build -t delivery-prediction-app .
+   ```
+
 2. Run the Docker Container
-   `docker run -p 8501:8501 delivery-prediction-app`
+
+   ```
+   docker run -p 8501:8501 delivery-prediction-app
+   ```
+
 3. Open the website in your browser on port 8501 or serve it.
 
 ## How to install dependencies
