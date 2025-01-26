@@ -56,7 +56,7 @@ def main():
             key="weather_description",
         )
 
-        user_input["humidity"] = st.slider("Humidity", 27, 94, step=1, key="humidity")
+        user_input["humidity"] = st.slider("Humidity", 10, 100, step=1, key="humidity")
 
         user_input["temperature"] = st.slider(
             "Temperature (°C)", -50, 50, step=1, key="temperature", value=0
