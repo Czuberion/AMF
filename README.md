@@ -17,6 +17,13 @@ In order to get the best out of the template:
 - Don't commit data to your repository
 - Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
 
+## Streamlit hosting
+
+This app can be accessed [here](https://czuberion-amf-srcsumlpipelinesappstreamlit-uxx1mn.streamlit.app/).
+
+> [!NOTE]  
+> Streamlit apps will go to sleep if not visited regularly, requiring a prompt to reinitialize them. [Docs](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app#app-hibernation)
+
 ## Docker deployment
 
 To run this project with Docker, you must:
