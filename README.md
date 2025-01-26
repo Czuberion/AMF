@@ -39,3 +39,7 @@ To run this project with Docker, you must:
    ```
 
 3. Open the website in your browser on port 8501 or serve it.
+
+## Dataset
+
+The dataset used for this project is "[Food Delivery Time: A Multi-Factor Dataset](https://www.kaggle.com/datasets/gautamdeora7/food-delivery-time-a-multi-factor-dataset)".
